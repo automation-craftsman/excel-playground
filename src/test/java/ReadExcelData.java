@@ -37,7 +37,7 @@ public class ReadExcelData {
                     case STRING:
                         System.out.print(selectedCell.getStringCellValue() + " ");
                         break;
-                    case NUMERIC:
+                    case NUMERIC, FORMULA:
                         System.out.print(selectedCell.getNumericCellValue() + " ");
                         break;
                     case BOOLEAN:
