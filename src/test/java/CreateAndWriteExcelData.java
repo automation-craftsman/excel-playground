@@ -60,6 +60,13 @@ public class CreateAndWriteExcelData {
             System.out.println("[!] Error writing file in the system.");
         }
 
+        try {
+            wb.close();
+            fos.close();
+        } catch (IOException e) {
+            System.out.println("[!] Error closing the workbook or output stream.");
+        }
+
 
     }
 }
