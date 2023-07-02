@@ -5,15 +5,13 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.testng.annotations.Test;
 
 import java.io.File;
 import java.io.IOException;
 
 public class ReadPasswordProtectedExcelData {
 
-    @Test(description = "Reading data from password protected Excel File")
-    public void readPasswordProtectedFile() throws IOException {
+    public static void main(String[] args) throws IOException {
 
         String filePath = ".\\src\\test\\resources\\protected_data.xlsx";
         String password = "12345";

@@ -4,14 +4,12 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.testng.annotations.Test;
 
 import java.io.IOException;
 
 public class ReadExcelData {
 
-    @Test(description = "Reading data from Excel Sheet")
-    public void readFormExcelFile() throws IOException {
+    public static void main(String[] args) throws IOException {
         String dataFilePath = ".\\src\\test\\resources\\userdata.xlsx";
 
         // Reading the Excel Workbook
