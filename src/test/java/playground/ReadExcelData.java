@@ -1,3 +1,5 @@
+package playground;
+
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -35,15 +37,16 @@ public class ReadExcelData {
 
                 switch (selectedCell.getCellType()){
                     case STRING:
-                        System.out.print(selectedCell.getStringCellValue() + " ");
+                        System.out.print(selectedCell.getStringCellValue());
                         break;
                     case NUMERIC, FORMULA:
-                        System.out.print(selectedCell.getNumericCellValue() + " ");
+                        System.out.print(selectedCell.getNumericCellValue());
                         break;
                     case BOOLEAN:
                         System.out.print(selectedCell.getBooleanCellValue());
                         break;
                 }
+                System.out.print(" | ");
             }
             System.out.println();
         }
