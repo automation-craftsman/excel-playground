@@ -162,5 +162,27 @@ public class ExcelUtils {
         fos.close();
     }
 
+//    public int getDesiredRowNumber(String sheetName, String valueToCheck) throws IOException {
+//
+//        wb = new XSSFWorkbook(filePath);
+//        sheet = wb.getSheet(sheetName);
+//
+//        int rowCount = getRowCount(sheetName);
+//        int columnCount = getColumnCount(sheetName);
+//
+//        int desiredRowNumber = 0;
+//
+//        for (int r=1; r<=rowCount; r++){
+//            for (int c=0; c<columnCount; c++){
+//                if (getCellData(sheetName, r, c).equalsIgnoreCase(valueToCheck)){
+//                    desiredRowNumber = r;
+//                    break;
+//                }
+//            }
+//        }
+//
+//        return desiredRowNumber;
+//    }
+
 
 }

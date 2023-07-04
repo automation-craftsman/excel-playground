@@ -1,7 +1,6 @@
 package tests;
 
 import base.Base;
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.LoginPage;
@@ -11,10 +10,11 @@ import java.io.IOException;
 
 public class TestExcelUtility extends Base {
 
+    public ExcelUtils xl;
     public LoginPage loginPage;
 
     @Test(dataProvider = "Login_data", description = "testing login using data stored in Excel file")
-    public void dataDrivenLoginTest(String userName, String userPassword) {
+    public void dataDrivenLoginTest(String userName, String userPassword) throws IOException {
         loginPage = new LoginPage();
 
         var productsPage = loginPage.loginUser(userName, userPassword);
@@ -33,17 +33,12 @@ public class TestExcelUtility extends Base {
             productsPage.clickMenuButton();
             productsPage.logoutUser();
 
-            Assert.assertTrue(true);
-
             System.out.println("Login successful with Username : " + "'" + userName + "'"
                     + " and Password : " + "'" + userPassword + "'");
         } else {
 
-//            Assert.assertTrue(true);
-
             System.out.println("[!] Login denied with Username : " + "'" + userName + "'"
                     + " and Password : " + "'" + userPassword + "'");
-
         }
 
 
@@ -54,7 +49,7 @@ public class TestExcelUtility extends Base {
 
         String filePath = ".\\src\\test\\resources\\login_data.xlsx";
 
-        ExcelUtils xl = new ExcelUtils(filePath);
+        xl = new ExcelUtils(filePath);
 
         int totalRows = xl.getRowCount("Login_Details");
         int totalColumns = xl.getColumnCount("Login_Details");
@@ -63,6 +58,7 @@ public class TestExcelUtility extends Base {
 
         for (int r=1; r<=totalRows; r++){
 
+            // Iterating columns except 'Login_Status'
             for (int c=0; c<totalColumns; c++){
                 loginData[r-1][c] = xl.getCellData("Login_Details", r, c);
             }

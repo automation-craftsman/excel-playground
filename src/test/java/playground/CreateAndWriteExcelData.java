@@ -5,13 +5,12 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class CreateAndWriteExcelData {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         XSSFWorkbook wb = new XSSFWorkbook();
         XSSFSheet sheet = wb.createSheet("User_Data");
@@ -46,27 +45,11 @@ public class CreateAndWriteExcelData {
 
         String filePath = ".\\src\\test\\resources\\userdata.xlsx";
 
-        FileOutputStream fos = null;
+        FileOutputStream fos = new FileOutputStream(filePath);
 
-        try {
-            fos = new FileOutputStream(filePath);
-        } catch (FileNotFoundException e) {
-            System.out.println("[!] Error creating file in the system.");
-        }
-
-        try {
-            wb.write(fos);
-        } catch (IOException e) {
-            System.out.println("[!] Error writing file in the system.");
-        }
-
-        try {
-            wb.close();
-            fos.close();
-        } catch (IOException e) {
-            System.out.println("[!] Error closing the workbook or output stream.");
-        }
-
+        wb.write(fos);
+        wb.close();
+        fos.close();
 
     }
 }
